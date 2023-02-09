@@ -8,6 +8,7 @@ import { FtpExplorer } from './ftpExplorer';
 import { FileExplorer } from './fileExplorer';
 import { TestViewDragAndDrop } from './testViewDragAndDrop';
 import { TestView } from './testView';
+import DropsEditorProvider from './drops/DropsEditorProvider';
 
 export function activate(context: vscode.ExtensionContext) {
 	const rootPath = (vscode.workspace.workspaceFolders && (vscode.workspace.workspaceFolders.length > 0))
@@ -51,4 +52,9 @@ export function activate(context: vscode.ExtensionContext) {
 	if (typeof vscode.DataTransferItem === 'function') {
 		new TestViewDragAndDrop(context);
 	}
+
+	const dropsEditorProvider = new DropsEditorProvider(context.extensionUri);
+	context.subscriptions.push(
+        vscode.window.registerCustomEditorProvider('DropsEditorProvider', dropsEditorProvider)
+    );
 }
