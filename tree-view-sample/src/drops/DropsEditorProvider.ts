@@ -60,14 +60,15 @@ class DropsEditorProvider implements vscode.CustomTextEditorProvider {
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<style>
 					.dropTarget { border: 1px dashed var(--vscode-inputValidation-errorBorder); width: 100px; height: 100px; }
-					.dragExample { border-radius: 9001px; border: 1px solid var(--vscode-button-background); color: var(--vscode-button-background); line-height: 1.5; } 
+					.dragExample { border-radius: 9001px; border: 1px solid var(--vscode-button-background); color: var(--vscode-button-background); padding: 0.2em 0.5em; } 
 					.dragoverHighlight { background-color: var(--vscode-inputValidation-infoBackground); }
 				</style>
 			</head>
 			<body style="min-height:100vh">
 				<br>
 				<!-- <div id="dropTarget" class="dropTarget"></div> -->
-				<span id="dragExample" class="dragExample" draggable="true">dragExample</span>
+				<span class="dragExample" draggable="true">dragExample1</span>
+				<span class="dragExample" draggable="true">dragExample2</span>
 				<pre id="dragoverXY" style="float:right"></pre>
 				<br>
 				<pre id="store" style="font-size:small"></pre>

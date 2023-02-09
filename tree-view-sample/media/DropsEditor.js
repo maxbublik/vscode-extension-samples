@@ -79,12 +79,12 @@
 
 (() => {
 
-	const dragExample = document.getElementById('dragExample');
-
-	dragExample.addEventListener('dragstart', (event) => {
-		let what = 'file:///webview/dragExample';
-		event.dataTransfer.setData('text/uri-list', what);
-		// event.dataTransfer.setData('text/plain', what);
-	});
+	for (let dragExample of document.querySelectorAll('.dragExample')) {
+		dragExample.addEventListener('dragstart', (event) => {
+			let what = 'file:///DropsEditor/' + event.target.textContent;
+			event.dataTransfer.setData('text/uri-list', what);
+			// event.dataTransfer.setData('text/plain', what);
+		});
+	}
 
 })();
