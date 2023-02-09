@@ -73,6 +73,11 @@
 				{
 					"id": "testViewDragAndDrop",
 					"name": "Test View Drag and Drop"
+				},
+				{
+					"type": "webview",
+					"id": "DropsView",
+					"name": "DropsView"
 				}
 			]
 		},

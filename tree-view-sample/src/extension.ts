@@ -9,6 +9,7 @@ import { FileExplorer } from './fileExplorer';
 import { TestViewDragAndDrop } from './testViewDragAndDrop';
 import { TestView } from './testView';
 import DropsEditorProvider from './drops/DropsEditorProvider';
+import DropsViewProvider from './drops/DropsViewProvider';
 
 export function activate(context: vscode.ExtensionContext) {
 	const rootPath = (vscode.workspace.workspaceFolders && (vscode.workspace.workspaceFolders.length > 0))
@@ -57,4 +58,9 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
         vscode.window.registerCustomEditorProvider('DropsEditorProvider', dropsEditorProvider)
     );
+
+	const dropsViewProvider = new DropsViewProvider(context.extensionUri);
+	context.subscriptions.push(
+		vscode.window.registerWebviewViewProvider('DropsView', dropsViewProvider)
+	);
 }
